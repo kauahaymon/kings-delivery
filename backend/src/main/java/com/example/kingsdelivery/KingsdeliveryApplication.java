@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class KingsdeliveryApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(KingsdeliveryApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(KingsdeliveryApplication.class, args);
+        System.out.println("Done!");
+    }
 }
