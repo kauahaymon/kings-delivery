@@ -5,6 +5,8 @@ import com.example.kingsdelivery.enums.OrderStatus;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderDTO implements Serializable {
 
@@ -14,6 +16,8 @@ public class OrderDTO implements Serializable {
     private Double longitude;
     private Instant moment;
     private OrderStatus status;
+
+    private List<ProductDTO> productDTOList = new ArrayList<>();
 
     public OrderDTO() {}
 
@@ -33,6 +37,7 @@ public class OrderDTO implements Serializable {
         longitude = entity.getLongitude();
         moment = entity.getMoment();
         status = entity.getStatus();
+        productDTOList = entity.getProducts().stream().map(ProductDTO::new).toList();
     }
 
     public Long getId() {
@@ -81,5 +86,9 @@ public class OrderDTO implements Serializable {
 
     public void setStatus(OrderStatus status) {
         this.status = status;
+    }
+
+    public List<ProductDTO> getProductDTOList() {
+        return productDTOList;
     }
 }
